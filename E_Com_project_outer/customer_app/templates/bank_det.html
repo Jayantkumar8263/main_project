@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block page %}
+<form class = "m-5" method= "get" >
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">account</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "account", value = "{{key.account}}" >
+     </div>
+     <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">bank_name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "bank_name",  value = "{{key.bank_name}}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">IFSC</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "IFSC",  value = "{{key.IFSC}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock page %}

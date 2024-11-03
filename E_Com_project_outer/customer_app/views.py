@@ -53,14 +53,12 @@ def delete_data(request , id):
 
 def update_data(request , id):
     data = custom_user.objects.get(pk = id)
-    
     if request.method == "GET":
         name = request.GET.get('name')
         email = request.GET.get('email')
         mobile = request.GET.get('mobile')
         address = request.GET.get('Address')
-        if name and email and mobile and address:
-            
+        if name and email and mobile and address: 
             data.name = name
             data.mobile = mobile
             data.address = address
@@ -68,3 +66,18 @@ def update_data(request , id):
             data.save()
             return redirect('home')
     return render(request, 'index.html', {'key' : data})
+
+def bank_details(request, id):
+    data = custom_user.objects.get(pk = id)
+    if request.method == 'GET':
+        account = request.GET.get('account')
+        bank_name = request.GET.get('bank_name')
+        IFSC = request.GET.get('IFSC') 
+        if account and bank_name and IFSC :
+            data.account = account
+            data.bank_name = bank_name
+            data.IFSC = IFSC
+            data.save()
+            return redirect('home')
+    return render(request, 'bank_det.html', {'key' : data})
+    
