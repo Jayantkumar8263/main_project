@@ -11,10 +11,9 @@ class custom_user(AbstractUser):
      mobile = models.IntegerField()
      email = models.EmailField( max_length=254, unique = True)
      address = models.CharField(max_length = 250)
-     
+     objects = custom_userManager()
      USERNAME_FIELD = 'name'
      REQURED_FIELD = 'email' 
-     objects = custom_userManager()
      
      def __str__(self):
           return self.name  

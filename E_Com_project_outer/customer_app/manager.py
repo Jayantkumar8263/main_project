@@ -6,7 +6,7 @@ class custom_userManager(BaseUserManager):
         if not email:
             raise ValueError('Please enter your email if not create one')
         user = self.model(email=email, **extra_fields)
-        user.set_passward(password)
+        user.set_password(password)
         user.save()
         return user
     def create_superuser(self, email, password, **extra_fields):
