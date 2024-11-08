@@ -10,5 +10,5 @@ urlpatterns = [
     path('profile/<int:i>', profile, name='profile'),
     path('del/<int:id>', delete_data, name= 'delete'),
     path('update/<int:id>', update_data, name = 'update'),
-    path('bank_details', bank_details,name = 'bank_details'),
+    path('bank_details/', bank_details,name = 'bank_details'),
 ]

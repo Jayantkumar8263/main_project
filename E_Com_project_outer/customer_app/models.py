@@ -17,7 +17,8 @@ class custom_user(AbstractUser):
      objects = custom_userManager()
      
      def __str__(self):
-          return self.name    
+          return self.name  
+       
 class bank_details(models.Model):
      account = models.CharField(max_length=50)
      bank_name = models.CharField(max_length=50)

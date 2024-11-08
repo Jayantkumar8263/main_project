@@ -14,6 +14,7 @@ def home(request):
     else:
         form = UserCreationForm()
     return render(request, 'home.html', {"form":form})
+
 #for registration
 def registration(request):
     if request.method == 'POST':
@@ -25,6 +26,7 @@ def registration(request):
     else:
          form = UserCreationForm()
     return render(request, 'registration.html', {'form': form})   
+
 #for login
 def ulogin(request):
     if request.method == 'POST':
@@ -37,20 +39,24 @@ def ulogin(request):
         else:
             messages.error(request, 'invalid username or password')
     return render(request, 'login.html')
+
 #for logout
 def ulogout(request):
     logout(request)
     return redirect('home')
+
 #for profile
 def profile(request, i):
     user = User.objects.get(pk = i)
     return render(request, 'profile.html', {'user' : user})
 
+#for delete
 def delete_data(request , id):
     data = custom_user.objects.get(pk = id)
     data.delete()
     return redirect('home')
 
+#to update
 def update_data(request , id):
     data = custom_user.objects.get(pk = id)
     if request.method == "GET":
@@ -67,6 +73,7 @@ def update_data(request , id):
             return redirect('home')
     return render(request, 'index.html', {'key' : data})
 
+#for bank_details
 def bank_details(request, id):
     data = custom_user.objects.get(pk = id)
     if request.method == 'GET':
@@ -80,4 +87,3 @@ def bank_details(request, id):
             data.save()
             return redirect('home')
     return render(request, 'bank_det.html', {'key' : data})
-    

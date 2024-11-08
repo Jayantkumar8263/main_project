@@ -51,4 +51,5 @@ def up_a(request, id):
 
 def card(request, id ):
     a = product_details.objects.get(pk = id, null = True, blank = True)
+    a.save()
     return redirect('pro.html')

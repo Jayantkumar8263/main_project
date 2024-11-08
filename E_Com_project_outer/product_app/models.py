@@ -11,4 +11,4 @@ class product_details(models.Model):
     descount_percent = models.CharField(max_length = 250)
     on_scale = models.CharField(max_length = 250)
     images = models.FileField(upload_to=None, max_length=100)
-    card = models.ForeignKey("product_details", on_delete=models.CASCADE)  
+    card = models.ForeignKey("product_details", on_delete=models.CASCADE, null=True, blank=True)
