@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block page %}
+{% for i in data %}
+{{i.product.name}}<br>
+{{i.product.price}}<br>
+<hr>
+{% endfor %}
+<a href="{% url "buy_now" %}">Buy Now</a>
+{% endblock page %}

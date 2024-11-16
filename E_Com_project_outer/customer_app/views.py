@@ -4,16 +4,13 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from customer_app.models import custom_user
+from product_app.models import product_details
+from django.contrib.auth import get_user_model
 # Create your views here.
-
+User = get_user_model()
 def home(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = UserCreationForm()
-    return render(request, 'home.html', {"form":form})
+    products= product_details.objects.all()
+    return render(request, 'home.html', {"pro":products})
 
 #for registration
 def registration(request):
